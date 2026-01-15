@@ -43,3 +43,4 @@ POST /api/customers 201 155 - 4.809 ms
 POST /api/users/login 200 224 - 58.297 ms
 GET /api/items 200 304 - 9.452 ms
 POST /api/items 201 143 - 23.301 ms
+POST /api/users/login 200 224 - 59.651 ms

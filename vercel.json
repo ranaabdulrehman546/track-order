@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "buildCommand": "cd view && npm install && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "view/build",
+  "installCommand": "npm install && cd view && npm install",
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
