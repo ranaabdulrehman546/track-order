@@ -40,3 +40,6 @@ GET /api/delivery-vehicles 200 214 - 13.146 ms
 POST /api/delivery-vehicles 201 210 - 16.252 ms
 GET /api/customers 200 151 - 6.211 ms
 POST /api/customers 201 155 - 4.809 ms
+POST /api/users/login 200 224 - 58.297 ms
+GET /api/items 200 304 - 9.452 ms
+POST /api/items 201 143 - 23.301 ms
