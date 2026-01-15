@@ -22,3 +22,21 @@ POST /api/delivery-vehicles 500 93 - 2.894 ms
 POST /api/delivery-vehicles 201 212 - 7.261 ms
 GET /api/customers 304  - 5.478 ms
 POST /api/customers 201 149 - 7.142 ms
+POST /api/users/login 401 33 - 26.273 ms
+POST /api/users/login 200 224 - 33.457 ms
+POST /api/users/login 200 224 - 4.593 ms
+GET /api/orders 200 2 - 19.021 ms
+GET /api/customers 200 151 - 13.793 ms
+GET /api/delivery-vehicles 200 214 - 17.010 ms
+GET /api/items 200 153 - 6.933 ms
+GET /api/delivery-vehicles 304  - 6.434 ms
+GET /api/customers 304  - 7.478 ms
+GET /api/items 304  - 5.368 ms
+POST /api/users/login 200 224 - 26.986 ms
+GET /api/items 200 153 - 7.847 ms
+POST /api/items 201 150 - 24.006 ms
+POST /api/users/login 200 224 - 36.104 ms
+GET /api/delivery-vehicles 200 214 - 13.146 ms
+POST /api/delivery-vehicles 201 210 - 16.252 ms
+GET /api/customers 200 151 - 6.211 ms
+POST /api/customers 201 155 - 4.809 ms

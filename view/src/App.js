@@ -1,7 +1,13 @@
 import Navbar from "./components/Navbar";
 import AppRoutes from "./routes/AppRoutes";
 import "./mediaquery.css";
-export const backend_url = "http://localhost:8000";
+
+// Use relative path for API calls (works with Vercel routing)
+// In development, use localhost; in production, use relative path
+export const backend_url = 
+  process.env.NODE_ENV === "development" 
+    ? "http://localhost:8000" 
+    : "";
 
 function App() {
   return (
