@@ -88,6 +88,11 @@ connection
     console.log("Backend not connected to MongoDB");
   });
 
+// Health check route for Vercel
+app.get("/api", (req, res) => {
+  res.json({ status: "ok", message: "API is running" });
+});
+
 // Public routes (no authentication required)
 app.use("/api", userRouter);
 app.use("/api", ItemRouter);
