@@ -32,20 +32,36 @@ userRouter.post("/users/login", async (req, res) => {
 });
 
 userRouter.post("/users/register", async (req, res) => {
-  const { name, phoneNumber, password } = req.body;
+  const { name, phoneNumber, password, confirmpassword } = req.body;
 
   try {
-    // Check if a user with the provided phone number already exists
-    const existingUser = await UsersModel.findOne({ phoneNumber });
-
-    if (existingUser) {
-      return res.status(409).json({ message: "User already exists." });
+    // Validate required fields
+    if (!name || !phoneNumber || !password || !confirmpassword) {
+      return res.status(400).json({ message: "All fields are required." });
     }
+
+    // Validate password confirmation
+    if (password !== confirmpassword) {
+      return res.status(400).json({ message: "Passwords do not match." });
+    }
+
+    // Check if a user with the provided phone number already exists
+    const existingUserByPhone = await UsersModel.findOne({ phoneNumber });
+    if (existingUserByPhone) {
+      return res.status(409).json({ message: "User with this phone number already exists." });
+    }
+
+    // Check if a user with the provided name already exists
+    const existingUserByName = await UsersModel.findOne({ name });
+    if (existingUserByName) {
+      return res.status(409).json({ message: "User with this name already exists." });
+    }
+
     bcrypt.hash(password, 2, async (err, hash) => {
       if (err) {
         return res
           .status(500)
-          .send("Error while hashing the password using bcrypt module.");
+          .json({ message: "Error while hashing the password using bcrypt module." });
       }
 
       try {
@@ -59,13 +75,13 @@ userRouter.post("/users/register", async (req, res) => {
         });
 
         // Send token to the client
-        res.status(201).json({ token, userId: newUser._id });
+        res.status(201).json({ token, userId: newUser._id, message: "User registered successfully" });
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
     });
   } catch (error) {
-    res.status(401).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
