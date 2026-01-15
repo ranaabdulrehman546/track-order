@@ -23,7 +23,7 @@ const LoginPage = () => {
     });
   };
 
-  const { token, error, userId } = useSelector((store) => store.authReducer);
+  const { token, error } = useSelector((store) => store.authReducer);
 
   const handleSubmit = (e) => {
     e.preventDefault();

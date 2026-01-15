@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FcCheckmark, FcCancel } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerRequest } from "../store/actions/authActions";
 
@@ -17,7 +17,6 @@ const RegisterPage = () => {
   const [passwordsMatch, setPasswordsMatch] = useState(true); // New state for passwords match status
 
   const [formData, setFormData] = useState(initialState);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = (e) => {

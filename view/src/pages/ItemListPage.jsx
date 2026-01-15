@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchItems } from "../store/actions/itemActions";
 import CreateItemModal from "../components/CreateItemModal ";
 
@@ -14,7 +14,7 @@ const ItemListPage = () => {
   const { token } = useSelector((store) => store.authReducer);
   useEffect(() => {
     dispatch(fetchItems(token));
-  }, []);
+  }, [dispatch, token]);
 
   return (
     <div style={{ marginTop: "120px" }}>

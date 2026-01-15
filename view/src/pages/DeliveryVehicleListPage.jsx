@@ -21,7 +21,7 @@ const DeliveryVehicleListPage = () => {
 
   useEffect(() => {
     dispatch(fetchDeliveryVehicles(token));
-  }, []);
+  }, [dispatch, token]);
 
   const handleCreateVehicle = () => {
     dispatch(createDeliveryVehicle(newVehicleData, token));

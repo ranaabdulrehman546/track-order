@@ -24,7 +24,7 @@ const HomePage = () => {
               </p>
 
               <div className="btn-group">
-                <a href="#" className="btn btn-primary">
+                <a href="/" className="btn btn-primary">
                   Support More
                 </a>
 

@@ -15,7 +15,7 @@ const CustomerListPage = () => {
 
   useEffect(() => {
     dispatch(fetchCustomers(token));
-  }, []);
+  }, [dispatch, token]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
